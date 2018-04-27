@@ -6,18 +6,20 @@
         <div class="main-container">
             <nav-bar></nav-bar>
             <tags-view></tags-view>
+            <app-main></app-main>
         </div>
     </div>
 </template>
 
 <script>
-import { Sidebar, NavBar, TagsView } from './components'
+import { Sidebar, NavBar, TagsView, AppMain } from './components'
 export default {
     name: 'layout',
     components: {
         Sidebar,
         NavBar,
-        TagsView
+        TagsView,
+        AppMain
     }
 }
 </script>

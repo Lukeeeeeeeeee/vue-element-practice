@@ -8,7 +8,7 @@
                 :to="tag.path"
                 :class="isActive(tag) ? 'active' : ''">
                 {{ tag.title }}
-                <span class="el-icon-close"></span>
+                <span class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)"></span>
             </router-link>
         </scroll-pance>
     </div>
@@ -46,6 +46,20 @@ export default {
         },
         isActive(route) {
             return route.path === this.$route.path || route.name === this.$route.name
+        },
+        closeSelectedTag(view) {
+            this.$store.dispatch('delVisitedViews', view).then((views) => {
+                if (this.isActive(view)) { // 判断路由是当前视图
+                    // 拿到最后一个视图
+                    const latestView = views.slice(-1)[0]
+                    if (latestView) {
+                        this.$router.push(latestView.path)
+                    } else {
+                        this.$router.push('/');
+                        this.addViewTags()
+                    }
+                }
+            })
         }
     },
     mounted() {

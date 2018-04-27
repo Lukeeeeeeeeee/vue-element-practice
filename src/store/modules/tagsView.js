@@ -16,7 +16,7 @@ const tagsView = {
             }
         },
         DEL_VISITED_VIEWS: (state, view) => {
-            for (const [i, v] of state.visitedViews.entries()) {
+            for (const [i, v] of state.visitedViews.entries()) { // entries() 方法返回一个新的Array Iterator对象，该对象包含数组中每个索引的键/值对
                 if (v.path === view.path) {
                     state.visitedViews.splice(i, 1);
                     break;
