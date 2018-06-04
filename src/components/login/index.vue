@@ -10,31 +10,31 @@
             label-position: 表单域标签的位置
             auto-complete: 原生属性，自动补全
          -->
-         <el-form ref="loginForm" :rules="loginRules" class="login-form" autoComplete="on" :model="loginForm" label-position="left">
-             <div class="title-container">
-                 <h3 class="title">系统登录</h3>
-             </div>
-             <!-- 帐户名 -->
-             <el-form-item prop="username">
-                 <span class="svg-container svg-container_login">
-                     <svg-icon icon-class="user" />
-                 </span>
-                 <el-input name="username" v-model="loginForm.username" type="text" autoComplete="no" placeholder="用户名称" />
-             </el-form-item>
-             <!-- 密码 -->
-             <el-form-item prop="password">
-                 <span class="svg-container">
-                     <svg-icon icon-class="password" />
-                 </span>
-                 <el-input name="password" v-model="loginForm.password" :type="passwordType" @keyup.enter.native="handleLogin" autoComplete="on" placeholder="用户密码" />
-                 <span class="show-pwd" @click="showPwd">
-                     <svg-icon :icon-class="iconClass" />
-                 </span>
-             </el-form-item>
+        <el-form ref="loginForm" :rules="loginRules" class="login-form" autoComplete="on" :model="loginForm" label-position="left">
+            <div class="title-container">
+                <h3 class="title">系统登录</h3>
+            </div>
+            <!-- 帐户名 -->
+            <el-form-item prop="username">
+                <span class="svg-container svg-container_login">
+                    <svg-icon icon-class="user" />
+                </span>
+                <el-input name="username" v-model="loginForm.username" type="text" autoComplete="no" placeholder="用户名称" />
+            </el-form-item>
+            <!-- 密码 -->
+            <el-form-item prop="password">
+                <span class="svg-container">
+                    <svg-icon icon-class="password" />
+                </span>
+                <el-input name="password" v-model="loginForm.password" :type="passwordType" @keyup.enter.native="handleLogin" autoComplete="on" placeholder="用户密码" />
+                <span class="show-pwd" @click="showPwd">
+                    <svg-icon :icon-class="iconClass" />
+                </span>
+            </el-form-item>
 
-             <!-- 按钮 -->
-             <el-button @click.native.prevent="handleLogin" :loading="loading" type="primary" style="width: 100%; margin-bottom: 30px" >登录</el-button>
-         </el-form>
+            <!-- 按钮 -->
+            <el-button @click.native.prevent="handleLogin" :loading="loading" type="primary" style="width: 100%; margin-bottom: 30px" >登录</el-button>
+        </el-form>
     </div>
 </template>
 

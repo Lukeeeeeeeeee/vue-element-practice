@@ -1,5 +1,5 @@
 <template>
-    <div class="app-wrapper">
+    <div class="app-wrapper" :class="classObj">
         <!-- 左侧菜单 -->
         <sidebar class="sidebar-container"></sidebar>
         <!-- 主体内容 -->
@@ -13,6 +13,8 @@
 
 <script>
 import { Sidebar, NavBar, TagsView, AppMain } from './components'
+import ResizeMixin from './mixin/resizeHandler'
+
 export default {
     name: 'layout',
     components: {
@@ -20,6 +22,17 @@ export default {
         NavBar,
         TagsView,
         AppMain
+    },
+    mixins: [ResizeMixin],
+    computed: {
+        sidebar() {
+            return this.$store.state.app.sidebar
+        },
+        classObj() {
+            return {
+                hideSidebar: !this.sidebar.opened
+            }
+        }
     }
 }
 </script>

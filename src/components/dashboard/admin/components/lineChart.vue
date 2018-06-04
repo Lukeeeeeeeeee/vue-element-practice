@@ -5,7 +5,7 @@
 <script>
 import echarts from 'echarts'
 require('echarts/theme/macarons')
-import { debounce } from '@/utils';
+import { debounce } from '@/utils'; // echarts自适应
 
 export default {
     props: {

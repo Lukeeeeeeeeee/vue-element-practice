@@ -15,8 +15,14 @@ import './icons' // icon
 import './mock' // 模拟数据
 import './permission' // 权限守卫
 
+import * as filters from './filters';
+
 Vue.use(Element, {
   size: 'medium'
+})
+
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
 })
 
 Vue.config.productionTip = false

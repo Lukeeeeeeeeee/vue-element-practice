@@ -7,29 +7,36 @@
         text-color: 菜单的文字颜色
         active-text-color: 当前激活菜单的文字颜色
      -->
-     <scroll-bar>
-        <el-menu mode="vertical" :default-active="$route.path" :collapse="isCollapse" background-color="#304156" text-color="#bfcbd9" active-text-color="#409eff">
+     <el-scrollbar wrapClass="scrollbar-wrapper">
+        <el-menu 
+            mode="vertical" 
+            :show-timeout="200" 
+            :default-active="$route.path" 
+            :collapse="isCollapse" 
+            background-color="#304156" 
+            text-color="#bfcbd9" 
+            active-text-color="#409eff">
+            
             <sidebar-item :routes="permission_routers"></sidebar-item>
         </el-menu>
-    </scroll-bar>
+    </el-scrollbar>
 </template>
 
 <script>
 import SidebarItem from './sidebarItem';
-import ScrollBar from '@/base/ScrollBar';
 import { mapGetters } from 'vuex';
 
 export default {
     components: {
-        ScrollBar,
         SidebarItem
     },
     computed: {
         ...mapGetters([
-            'permission_routers'
+            'permission_routers',
+            'sidebar'
         ]),
         isCollapse() {
-
+            return !this.sidebar.opened
         }
     }
 }

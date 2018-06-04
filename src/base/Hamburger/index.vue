@@ -38,6 +38,9 @@ export default {
     transition: .38s;
     transform-origin: 50% 50%; // 旋转的基点位置
 }
+.hamburger.is-active {
+    transform: rotate(0deg);
+}
 </style>
 
 

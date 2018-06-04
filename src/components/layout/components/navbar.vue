@@ -1,7 +1,7 @@
 <template>
     <el-menu class="navbar" mode="horizontal">
         <!-- 收缩按钮 -->
-        <hamburger class="hamburger-container" :toggleClick="toggleClick"></hamburger>
+        <hamburger class="hamburger-container" :toggleClick="toggleClick" :isActive="sidebar.opened"></hamburger>
         <!-- 面包屑 -->
         <breadcrumb class="breadcrumb-container"></breadcrumb>
         <!-- 
@@ -39,12 +39,13 @@ export default {
     },
     computed: {
         ...mapGetters([
-            'avatar'
+            'avatar',
+            'sidebar'
         ])
     },
     methods: {
         toggleClick() {
-
+            this.$store.dispatch('toggleSideBar')
         },
         logout() {
             this.$store.dispatch('LogOut').then(() => {

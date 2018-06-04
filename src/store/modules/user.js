@@ -36,7 +36,7 @@ const user = {
                     const data = response.data;
                     // 设置token
                     commit('SET_TOKEN', data.token);
-                    // 获取token
+                    // 设置cookie
                     setToken(response.data.token);
                     resolve();
                 }).catch(error => {
@@ -65,11 +65,12 @@ const user = {
         // 登出
         LogOut({ commit, state }) {
             return new Promise((resolve, reject) => {
-                Alogout(state.token).then(() => {
+                Alogout(state.token).then((res) => {
+                    console.log(res)
                     commit('SET_TOKEN', '');
                     commit('SET_ROLES', []);
                     removeToken();
-                    resolve()
+                    // resolve()
                 }).catch(error => {
                     reject(error);
                 })

@@ -16,6 +16,10 @@ html {
     box-sizing: border-box;
 }
 
+label {
+    font-weight: 700;
+}
+
 #app {
     height: 100%;
 }
@@ -44,4 +48,29 @@ a:hover {
     padding: 20px;
 }
 
+.components-container {
+    margin: 30px 50px;
+    position: relative;
+}
 
+.filter-container {
+    padding-bottom: 10px;
+    .filter-item {
+        display: inline-block;
+        vertical-align: middle;
+        margin-bottom: 10px;
+    }
+}
+
+.link-type,
+.link-type:focus {
+    color: #337ab7;
+    cursor: pointer;
+    &:hover {
+        color: rgb(32, 160, 255)
+    }
+}
+
+.pagination-container {
+    margin-top: 30px;
+}

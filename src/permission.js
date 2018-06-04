@@ -41,9 +41,9 @@ router.beforeEach((to, from, next) => {
                         // replace: true 以便导航不会留下历史记录
                         next({ ...to, replace: true });
                     })
-                }).catch(() => {
+                }).catch((err) => {
                     store.dispatch('FedLogOut').then(() => {
-                        Message.error('验证失败, 请重新登录')
+                        Message.error(err || '验证失败, 请重新登录')
                         next({ path: '/login' })
                     })
                 })
